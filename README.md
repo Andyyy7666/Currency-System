@@ -7,12 +7,12 @@
 These resouces will allow you to withdraw, deposit or transfer money to other players. You can use atms, banks, or chat commands.
 
 # Features
-/give command
-/pay command
-ATM UI
-Fleeca Bank UI
-Current balance UI
-Sound effects
+* /give command
+* /pay command
+* ATM UI
+* Fleeca Bank UI
+* Current balance UI
+* Sound effects
 
 # Image Preview
 https://i.imgur.com/ItJS1QW.png
