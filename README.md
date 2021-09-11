@@ -3,6 +3,9 @@
   <img src="https://invidget.switchblade.xyz/Z9Mxu72zZ6" />
 </a>
 
+# How to install:
+Drag [Money] to your resources folder and write start [Money] in your server cfg.
+
 # Description
 These resouces will allow you to withdraw, deposit or transfer money to other players. You can use atms, banks, or chat commands.
 
