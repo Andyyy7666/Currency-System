@@ -12,7 +12,7 @@ $(function() {
 
     window.addEventListener('message', function(event) {
         var item = event.data;
-        if (item.type === "ui") {       // check if message is ui
+        if (item.type === "ui") { // check if message is ui
             if (item.status == true) {
                 display(true)
             } else {
@@ -21,7 +21,7 @@ $(function() {
         }
 
         // Recive message from client.lua
-        $('#playername').text(event.data.playerName);
+        $('#playername').text('Account - ' + event.data.playerName);
         $('#balance').text(event.data.bankAmount);
     })
 
@@ -33,7 +33,7 @@ $(function() {
         }
     };
 
-    $("#WithdrawButton").click(function () {
+    $("#WithdrawButton").click(function() {
         let WithdrawValue = $("#enteredAmount").val()
         if (WithdrawValue > 2500) {
             $.post("http://ATM_Script/withdrawError", JSON.stringify({
@@ -52,7 +52,7 @@ $(function() {
         return;
     })
 
-    $("#DepositButton").click(function () {
+    $("#DepositButton").click(function() {
         let DepositValue = $("#enteredAmount").val()
         if (DepositValue > 2500) {
             $.post("http://ATM_Script/depositError", JSON.stringify({
@@ -71,7 +71,7 @@ $(function() {
         return;
     })
 
-    $("#closeButton").click(function () {
+    $("#closeButton").click(function() {
         $.post('http://ATM_Script/main', JSON.stringify({}));
         return
     })

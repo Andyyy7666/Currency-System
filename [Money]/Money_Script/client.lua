@@ -208,6 +208,10 @@ Citizen.CreateThread(function()
     while true do
         Citizen.Wait(1)
 
+		if config.hudAlways == true then 
+			HUD = true
+		end
+
 		if HUD == true then
 			Text2("💵", 0.885, 0.028)
 			Text2("💳", 0.885, 0.068)

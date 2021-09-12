@@ -116,8 +116,8 @@ function SetDisplay(bool, typeName)
     SendNUIMessage({
         type = typeName,
         status = bool,
-		playerName = "Welcome back " .. GetPlayerName(PlayerId()),
-		bankAmount = "Account balance $" .. exports.Money_Script:CheckBank() .. ".00"
+		playerName = "Welcome Back, " .. GetPlayerName(PlayerId()) .. "!",
+		bankAmount = "Account Balance $" .. exports.Money_Script:CheckBank() .. ".00"
     })
 end
 
