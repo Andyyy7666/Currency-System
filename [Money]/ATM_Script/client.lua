@@ -97,7 +97,7 @@ function SetDisplay(bool, typeName)
         type = typeName,
         status = bool,
 		playerName = GetPlayerName(PlayerId()), 
-		bankAmount = "Account balance $" .. exports.Money_Script:CheckBank() .. ".00"
+		bankAmount = "Account Balance $" .. exports.Money_Script:CheckBank() .. ".00"
     })
 end
 

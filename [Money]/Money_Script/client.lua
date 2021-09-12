@@ -42,6 +42,11 @@ exports("ToBank", function(amount)
 	AddBank(amount)
 end)
 
+--Remove Cash
+exports("RemoveCash", function(amount)
+	RemoveCash(amount)
+end)
+
 exports("TransferMoney", function(amount, playerId)
 	local MoneyID = playerId
 	local SendingMoneyPlayerID = GetPlayerServerId(PlayerId(PlayerPedId(-1)))
@@ -207,6 +212,10 @@ end)
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(1)
+
+		if config.hudAlways == true then 
+			HUD = true
+		end
 
 		if HUD == true then
 			Text2("💵", 0.885, 0.028)
