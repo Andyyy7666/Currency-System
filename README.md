@@ -1,7 +1,6 @@
 # Need Support?
-<a href="https://discord.gg/Z9Mxu72zZ6">
-  <img src="https://invidget.switchblade.xyz/Z9Mxu72zZ6" />
-</a>
+
+[![Need Support?](https://i.imgur.com/fqKYWeV.png)](https://discord.gg/Z9Mxu72zZ6)
 
 # How to install:
 Drag [Money] to your resources folder and write start [Money] in your server cfg.
