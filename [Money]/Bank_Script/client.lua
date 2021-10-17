@@ -97,7 +97,7 @@ Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0)
 		
-		if IsNearBank() then
+		if IsNearBank() and not display then
 			alert("Press ~INPUT_CONTEXT~ to use bank")
 			if IsControlJustPressed(0, 51) then
 				SetDisplay(not display, "ui")
