@@ -6,17 +6,41 @@
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
 
-version "1.0.0"
+version "1.1."
 description "Currecny system like GTA Online"
 author "Andyyy#7666"
 
-fx_version "bodacious"
+fx_version "cerulean"
 game "gta5"
 
+shared_script "config.lua"
 client_scripts {
-    "config.lua",
-    "functions.lua",
-    "client.lua",
+    "source/functions.lua",
+    "source/client.lua",
+}
+server_scripts {
+    "source/server.lua",
 }
 
-server_script "server.lua"
+exports {
+    "AddBank", -- AddBank(amount)
+    "AddCash", -- AddCash(amount)
+    "RemoveBank", -- RemoveBank(amount)
+    "RemoveCash", -- RemoveCash(amount)
+    "TransferMoney", -- TransferMoney(amount, playerId)
+    "GiveCash", -- GiveCash(amount)
+    "ToBank", -- ToBank(amount)
+    "ToWallet", -- ToWallet(amount)
+    "CheckBank", -- CheckBank()
+    "CheckWallet", -- CheckWallet()
+}
+
+--[[ How to use an export example
+
+This below will remove $25 when the player pressed E.
+
+if IsControlJustPressed(0, 51) then
+    exports.Money_Script:RemoveCash(25)
+end
+
+]]
