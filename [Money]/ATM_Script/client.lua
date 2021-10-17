@@ -79,7 +79,7 @@ Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0)
 		
-		if IsNearATM() then
+		if IsNearATM() and not display then
 			alert("Press ~INPUT_CONTEXT~ to use the ATM")
 			if IsControlJustPressed(0, 51) then
 				SetDisplay(not display, "ui")
