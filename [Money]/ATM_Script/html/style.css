@@ -48,7 +48,7 @@ body {
     background-image: linear-gradient(rgb(204, 2, 2), rgb(255, 0, 0));
     height: 50px;
     width: 75%;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 #playername {
