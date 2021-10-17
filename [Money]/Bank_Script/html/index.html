@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <section id="overlay">
+            <img src="img/fleecabank.png" alt="Fleeca Bank Logo" id="logo">
+            <h1 id="playername"></h1>
+            <p id="balance"></p>
+            <hr id="greenline">
+            <form>
+                <input id="enteredAmount" class="input" type="number" placeholder="Amount" min="0">
+                <input id="TransferAmount" class="input" type="number" placeholder="Transfer Amount" min="0">
+                <input id="TransferId" class="input" type="number" placeholder="ID">
+                <br>
+                <input id="WithdrawButton" class="input" type="submit" value="Withdraw">
+                <input id="DepositButton" class="input" type="submit" value="Deposit">
+                <input id="TransferButton" class="input" type="submit" value="Transfer">
+            </form>
+            <button id="closeButton" class="input">Exit</button>
+        </section>
+        </div>
+        <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
+        <script src="js/listener.js" type="text/javascript"></script>
+    </body>
+</html>

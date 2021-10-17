@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#overlay {
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(199, 199, 199));
+    background-color: white;
+    width: 900px;
+    height: 550px;
+    margin-left: 25%;
+    margin-top: 10%;
+    border-radius: 10px;
+}
+
+#logo {
+    width: 300px;
+    padding-left: 9.9%;
+    margin-top: 3%;
+}
+
+#balance {
+    color: black;
+    font-size: 18px;
+    position: static;
+    margin-left: 71.8%;
+    margin-top: -22px;
+}
+
+#redline {
+    height: 3px;
+    width: 80%;
+    background-color: red;
+}
+
+#redbox {
+    margin-top: 5%;
+    margin-left: 10%;
+    padding-left: 4%;
+    padding-right: 1%;
+    color: red;
+    background-color: red;
+    background-image: linear-gradient(rgb(204, 2, 2), rgb(255, 0, 0));
+    height: 50px;
+    width: 75%;
+    border-radius: 10px;
+}
+
+#playername {
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+}
+
+form {
+    margin: 5% 35%;
+}
+
+.input {
+    width: 250px;
+    height: 50px;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 35%;
+    transition: backgrund-color 1ms;
+}
+
+.input:hover {
+    background-color: rgb(214, 0, 0);
+}
+
+#enteredAmount {
+    width: 230px;
+    height: 45px;
+    margin-left: 2%;
+    margin-bottom: 8%;
+    margin-top: 10%;
+    color: black;
+    background-color: white;
+    border-color: black;
+    text-align: center;
+}
+
+#WithdrawButton {
+    width: 100px;
+    height: 35px;
+    display: inline-block;
+    margin-left: 2%;
+}
+
+#DepositButton {
+    width: 100px;
+    height: 35px;
+    position: absolute;
+    display: inline-block;
+    margin-left: 1.8%;
+}
+
+#closeButton {
+    width: 234px;
+    height: 35px;
+    display: inline-block;
+    margin-left: 35.7%;
+}
