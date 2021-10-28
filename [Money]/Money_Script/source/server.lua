@@ -9,15 +9,16 @@
 -- Find out how much money the player has.
 RegisterServerEvent("Andyyy:GetAmount")
 AddEventHandler("Andyyy:GetAmount", function()
-	bank = GetResourceKvpInt("bank")
-	cash = GetResourceKvpInt("cash")
+	steam = GetPlayerIdentifier(source, 0)
+	bank = GetResourceKvpInt(steam .. "bank")
+	cash = GetResourceKvpInt(steam .. "cash")
 
 	if bank == 0 then
-		SetResourceKvpInt("bank", config.startingBank)
+		SetResourceKvpInt(steam .. "bank", config.startingBank)
 		bank = config.startingBank
 	end
 	if cash == 0 then
-		SetResourceKvpInt("cash", config.startingWallet)
+		SetResourceKvpInt(steam .. "cash", config.startingWallet)
 		cash = config.startingWallet
 	end
 
@@ -27,48 +28,52 @@ end)
 -- Remove cash from the player.
 RegisterServerEvent("Andyyy:RemoveCash")
 AddEventHandler("Andyyy:RemoveCash", function(amount)
-	oldCash = GetResourceKvpInt("cash") - amount
+	steam = GetPlayerIdentifier(source, 0)
+	oldCash = GetResourceKvpInt(steam .. "cash") - amount
 
-	SetResourceKvpInt("cash", oldCash)
+	SetResourceKvpInt(steam .. "cash", oldCash)
 
-	cash = GetResourceKvpInt("cash")
-	bank = GetResourceKvpInt("bank")
+	cash = GetResourceKvpInt(steam .. "cash")
+	bank = GetResourceKvpInt(steam .. "bank")
 	TriggerClientEvent("Andyyy:SetAmount", source, source, bank, cash)
 end)
 
 -- Remove bank from the player.
 RegisterServerEvent("Andyyy:RemoveBank")
 AddEventHandler("Andyyy:RemoveBank", function(amount)
-	oldBank = GetResourceKvpInt("bank") - amount
+	steam = GetPlayerIdentifier(source, 0)
+	oldBank = GetResourceKvpInt(steam .. "bank") - amount
 
-	SetResourceKvpInt("bank", oldBank)
+	SetResourceKvpInt(steam .. "bank", oldBank)
 
-	cash = GetResourceKvpInt("cash")
-	bank = GetResourceKvpInt("bank")
+	cash = GetResourceKvpInt(steam .. "cash")
+	bank = GetResourceKvpInt(steam .. "bank")
 	TriggerClientEvent("Andyyy:SetAmount", source, source, bank, cash)
 end)
 
 -- Add cash to player.
 RegisterServerEvent("Andyyy:AddCash")
 AddEventHandler("Andyyy:AddCash", function(amount)
-	oldCash = GetResourceKvpInt("cash") + amount
+	steam = GetPlayerIdentifier(source, 0)
+	oldCash = GetResourceKvpInt(steam .. "cash") + amount
 
-	SetResourceKvpInt("cash", oldCash)
+	SetResourceKvpInt(steam .. "cash", oldCash)
 
-	cash = GetResourceKvpInt("cash")
-	bank = GetResourceKvpInt("bank")
+	cash = GetResourceKvpInt(steam .. "cash")
+	bank = GetResourceKvpInt(steam .. "bank")
 	TriggerClientEvent("Andyyy:SetAmount", source, source, bank, cash)
 end)
 
 -- Remove bank from player.
 RegisterServerEvent("Andyyy:AddBank")
 AddEventHandler("Andyyy:AddBank", function(amount)
-	oldBank = GetResourceKvpInt("bank") + amount
+	steam = GetPlayerIdentifier(source, 0)
+	oldBank = GetResourceKvpInt(steam .. "bank") + amount
 
-	SetResourceKvpInt("bank", oldBank)
+	SetResourceKvpInt(steam .. "bank", oldBank)
 
-	cash = GetResourceKvpInt("cash")
-	bank = GetResourceKvpInt("bank")
+	cash = GetResourceKvpInt(steam .. "cash")
+	bank = GetResourceKvpInt(steam .. "bank")
 	TriggerClientEvent("Andyyy:SetAmount", source, source, bank, cash)
 end)
 
