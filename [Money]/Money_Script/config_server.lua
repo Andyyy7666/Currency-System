@@ -4,7 +4,7 @@
 --                                                                    --
 ------------------------------------------------------------------------
 
-config = {
+discord_config = {
     discordToken = "", -- Create a bot and write the token in here.
     guildId = "857672921912836116", -- The discord server id.
     roles = { -- Roles that can use the adminAddCommand.
