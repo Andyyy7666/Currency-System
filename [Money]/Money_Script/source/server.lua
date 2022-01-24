@@ -42,7 +42,7 @@ function sendToDiscord(title, description, R, G, B)
             color = fromRGB(R, G, B)
         }
     }
-    PerformHttpRequest(config.discordWebhook, function(err, text, headers) end, 'POST', json.encode({embeds = embed}), {["Content-Type"] = "application/json"})
+    PerformHttpRequest(discord_config.discordWebhook, function(err, text, headers) end, 'POST', json.encode({embeds = embed}), {["Content-Type"] = "application/json"})
 end
 
 -- find out how much money the player has, if they're new and don't have money then it will give them the starting value.
@@ -175,7 +175,7 @@ RegisterCommand(config.adminAddCommand, function(source, args, raw)
     local amount = args[2]
     local hasPerms = false
 
-    for _, role in pairs(config.roles) do
+    for _, role in pairs(discord_config.roles) do
         if IsRolePresent(player, role) then
             hasPerms = true
             break
@@ -195,7 +195,7 @@ RegisterCommand(config.adminAddCommand, function(source, args, raw)
     else
         exports.oxmysql:query("UPDATE money SET bank = bank + ? WHERE license = ?", {amount, GetPlayerIdentifierFromType("license", target)})
         TriggerClientEvent("adminReceiveNotification", target, amount, GetPlayerName(player), player)
-        if config.enableDiscordLogs then
+        if discord_config.enableDiscordLogs then
             sendToDiscord("Admin command used", GetPlayerName(player) .. " added $" .. amount .. " to " .. GetPlayerName(target) .. ".", 255, 0, 0)
         end
     end
@@ -214,7 +214,7 @@ Citizen.CreateThread(function()
 end)
 
 -- This is a edited version of discord-roles (everything below), original discord-roles resource: https://forum.cfx.re/t/discord-roles-for-permissions-im-creative-i-know/233805?u=andyyy7666
-local FormattedToken = "Bot " .. config.discordToken
+local FormattedToken = "Bot " .. discord_config.discordToken
 
 function DiscordRequest(method, endpoint, jsondata)
     local data = nil
@@ -243,11 +243,11 @@ function IsRolePresent(user, role)
 	if type(role) == "number" then
 		theRole = tostring(role)
 	else
-		theRole = config.roles[role]
+		theRole = discord_config.roles[role]
 	end
 
     if discordId then
-		local endpoint = ("guilds/%s/members/%s"):format(config.guildId, discordId)
+		local endpoint = ("guilds/%s/members/%s"):format(discord_config.guildId, discordId)
 		local member = DiscordRequest("GET", endpoint, {})
 		if member.code == 200 then
 			local data = json.decode(member.data)
@@ -272,7 +272,7 @@ function IsRolePresent(user, role)
 end
 
 Citizen.CreateThread(function()
-	local guild = DiscordRequest("GET", "guilds/" .. config.guildId, {})
+	local guild = DiscordRequest("GET", "guilds/" .. discord_config.guildId, {})
 	if guild.code == 200 then
 		local data = json.decode(guild.data)
 		print("Permission system guild set to: " .. data.name .. " (" .. data.id .. ")")
