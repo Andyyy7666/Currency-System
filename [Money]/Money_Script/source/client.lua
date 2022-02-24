@@ -93,6 +93,26 @@ AddEventHandler("receiveBank", function(amount, playerSending, playerId)
     TriggerServerEvent("updateMoney")
 end)
 
+--Added by Resq to allow the correct icon (+) to show when money is added when someone uses the export and TriggerClientEvent in another script. Need to use TriggerClientEvent("updateAddMoney", player, amount, "cash") or "bank" depnding on the useage
+RegisterNetEvent("updateAddMoney")
+AddEventHandler("updateAddMoney", function(amount, type)
+    if type == "cash" then
+        amount = "~r~+ ~g~$~w~".. amount
+    elseif type == "bank" then
+        amount = "~r~+ ~b~$~w~".. amount
+    else
+        amount = amount
+    end
+
+    local time = 0
+    while time < 300 do
+        Citizen.Wait(0)
+        text(amount, 0.8971, 0.11, 0.55)
+        time = time + 1
+    end
+    TriggerServerEvent("updateAddMoney")
+end)
+
 -- Notification when you receive cash.
 RegisterNetEvent("receiveCash")
 AddEventHandler("receiveCash", function(amount, playerSending, playerId)
