@@ -88,6 +88,19 @@ AddEventHandler("updateMoney", function()
     end)
 end)
 
+--Added by Resq to work with the submitted client.lua edit that adds the ClientEvent for updateAddMoney to facilitate the display of a + symbol instead of a - symbol when using the export and event trigger in an external script where the player should receive money.
+RegisterNetEvent("updateAddMoney")
+AddEventHandler("updateAddMoney", function()
+    local player = source
+    exports.oxmysql:query("SELECT cash, bank FROM money WHERE license = ?", {GetPlayerIdentifierFromType("license", player)}, function(result)
+        if result then
+            local cash = result[1].cash
+            local bank = result[1].bank
+            TriggerClientEvent("returnMoney", player, cash, bank)
+        end
+    end)
+end)
+
 -- Paying money from the bank account command.
 RegisterCommand(config.payCommand, function(source, args, raw)
     local player = source
