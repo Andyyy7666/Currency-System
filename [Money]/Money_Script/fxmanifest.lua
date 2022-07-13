@@ -1,21 +1,23 @@
-------------------------------------------------------------------------
-------------------------------------------------------------------------
---			DO NOT EDIT IF YOU DON'T KNOW WHAT YOU'RE DOING			  --
---     							 									  --
---	   For support join my discord: https://discord.gg/Z9Mxu72zZ6	  --
-------------------------------------------------------------------------
-------------------------------------------------------------------------
+-- For support join my discord: https://discord.gg/Z9Mxu72zZ6
 
-version "1.2"
-description "Currecny system like GTA Online"
 author "Andyyy#7666"
+description "Simple Standalone Currency System"
+version "2.0.0"
 
 fx_version "cerulean"
 game "gta5"
+lua54 "yes"
 
-shared_script "config_client.lua"
 client_script "source/client.lua"
 server_scripts {
     "config_server.lua",
     "source/server.lua"
+}
+
+exports {
+    "getMoney"
+}
+
+server_exports {
+    "getServerObject"
 }
