@@ -15,16 +15,17 @@ function text(text, x, y, scale)
     SetTextEdge(1, 0, 0, 0, 255)
     SetTextDropShadow(0, 0, 0, 0,255)
     SetTextOutline()
-	SetTextJustification(1)
+    SetTextJustification(1)
     SetTextEntry("STRING")
     AddTextComponentString(text)
     DrawText(x, y)
 end
 
+
 -- Trigger the server event "getMoney" when the resource starts.
 AddEventHandler("onResourceStart", function(resourceName)
     if (GetCurrentResourceName() ~= resourceName) then
-      return
+    	return
     end
     Citizen.Wait(1000)
     TriggerServerEvent("getMoney")
