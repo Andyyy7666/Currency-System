@@ -97,6 +97,12 @@ function money.functions.transferBank(amount, player, target)
             args = {"Error", "That player does not exist."}
         })
         return false
+    elseif amount <= 0 then
+        TriggerClientEvent("chat:addMessage", player, {
+            color = {255, 0, 0},
+            args = {"Error", "You can't send that amount."}
+        })
+        return false
     elseif money.players[player].bank < amount then
         TriggerClientEvent("chat:addMessage", player, {
             color = {255, 0, 0},
@@ -104,11 +110,10 @@ function money.functions.transferBank(amount, player, target)
         })
         return false
     else
-        exports.oxmysql:query("UPDATE money SET bank = bank - ? WHERE license = ?", {amount, GetPlayerIdentifierFromType("license", player)})
+        MySQL.query.await("UPDATE money SET bank = bank - ? WHERE license = ?", {amount, GetPlayerIdentifierFromType("license", player)})
         money.functions.update(player)
-        exports.oxmysql:query("UPDATE money SET bank = bank + ? WHERE license = ?", {amount, GetPlayerIdentifierFromType("license", target)})
+        MySQL.query.await("UPDATE money SET bank = bank + ? WHERE license = ?", {amount, GetPlayerIdentifierFromType("license", target)})
         money.functions.update(target)
-
         TriggerClientEvent("chat:addMessage", player, {
             color = {0, 255, 0},
             args = {"Success", "You paid " .. GetPlayerName(target) .. " $" .. amount .. "."}
