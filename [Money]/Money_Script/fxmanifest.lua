@@ -10,6 +10,7 @@ lua54 "yes"
 
 client_script "source/client.lua"
 server_scripts {
+    "@oxmysql/lib/MySQL.lua",
     "config_server.lua",
     "source/server.lua"
 }
@@ -21,3 +22,5 @@ exports {
 server_exports {
     "getServerObject"
 }
+
+dependency "oxmysql"
