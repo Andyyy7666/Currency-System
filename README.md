@@ -1,3 +1,6 @@
+# THIS RESOURCE IS DEPRECATED. No support will be provided. Use [ND Framework](https://github.com/ND-Framework) instead!!!!!!!!!!!!!
+
+
 # Need Support?
 
 [![Need Support?](https://i.imgur.com/fqKYWeV.png)](https://discord.gg/Z9Mxu72zZ6)
